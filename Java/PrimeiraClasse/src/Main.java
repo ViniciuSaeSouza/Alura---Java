@@ -20,8 +20,8 @@ public class Main {
         //Comentário de linha única.
         System.out.println(sinopse);
         /*Comentário
-          De mais de uma linha
-         */
-
+          De mais de uma linha*/
+        int classificacao = (int) (media / 2); //Casting
+        System.out.println(classificacao);
     }
 }
