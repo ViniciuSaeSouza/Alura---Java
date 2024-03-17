@@ -29,7 +29,7 @@ public class ProjetoMiniBanco {
                     2- Receber Valor
                     3- Transferir Valor
                     4- Encerrar""");
-            
+
             System.out.println("Digite a operação escolhida: ");
             operacaoEscolhida = input.nextInt();
             switch (operacaoEscolhida) {
