@@ -10,8 +10,8 @@ public class ProjetoMiniBanco {
         String tipoDeConta = input.nextLine();
 
         System.out.println("Digite seu saldo inicial: ");
-        double saldoInicial = input.nextDouble();
-        double saldoAtual = saldoInicial;
+        double saldoAtual = input.nextDouble();
+
         //System.out.println(" ");
         System.out.println("\n****************************************************************");
         System.out.println("Dados iniciais do Cliente ");
@@ -49,12 +49,11 @@ public class ProjetoMiniBanco {
                     if (valorTransferido > saldoAtual){
                         System.out.println("Não há saldo suficiente para esta operação: ");
                         System.out.println("Seu saldo atual é: R$" + saldoAtual+"\n");
-                        break;
                     } else {
                         saldoAtual -= valorTransferido;
                         System.out.println("O saldo atualizado é: R$" + saldoAtual+"\n");
-                        break;
                     }
+                    break;
                 case 4:
                     break;
 
