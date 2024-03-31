@@ -1,3 +1,5 @@
+import br.com.alura.sreenmatch.modelos.Filme;
+
 public class Principal {
     public static void main(String[] args) {
         Filme filme01 = new Filme();
