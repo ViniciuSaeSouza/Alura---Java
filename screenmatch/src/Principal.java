@@ -3,9 +3,9 @@ import br.com.alura.sreenmatch.modelos.Filme;
 public class Principal {
     public static void main(String[] args) {
         Filme filme01 = new Filme();
-        filme01.nome = "O podereso chefão";
-        filme01.anoDeLancamento = 1970;
-        filme01.duracaoEmMinutos = 180;
+        filme01.setNome("O podereso chefão");
+        filme01.setAnoDeLancamento(1970);
+        filme01.setDuracaoEmMinutos(180);
 
         filme01.exibiFichaTecnica();
         filme01.avalia(8);
