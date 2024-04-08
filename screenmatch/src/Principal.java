@@ -32,17 +32,22 @@ public class Principal {
         filme01.setNome("O podereso chefão");
         filme01.setAnoDeLancamento(1970);
         filme01.setDuracaoEmMinutos(180);
+        filme01.avalia(10);
 
         Filme filme02 = new Filme();
         filme02.setNome("O podereso chefão 2");
         filme02.setAnoDeLancamento(1974);
         filme02.setDuracaoEmMinutos(200);
-
+        filme02.avalia(6);
 
         CalculadoraDeTempo calculadora = new CalculadoraDeTempo();
         calculadora.inclui(filme01);
         calculadora.inclui(filme02);
         calculadora.inclui(drHouse);
         System.out.println("Duração total: " + calculadora.getTempoTotal());
+
+        FiltroRecomendacao filtro = new FiltroRecomendacao();
+        filtro.filtra(filme01);
+        filtro.filtra(filme02);
     }
 }
