@@ -1,5 +1,3 @@
-import br.com.alura.sreenmatch.modelos.Filme;
-import br.com.alura.sreenmatch.modelos.Titulo;
 import br.com.alura.sreenmatch.modelos.Serie;
 public class Principal {
     public static void main(String[] args) {
@@ -24,5 +22,7 @@ public class Principal {
         drHouse.exibiFichaTecnica();
         drHouse.setTemporadas(8);
         drHouse.setEpisodiosPorTemporada(10);
+        drHouse.setMinutosPorEpisodio(45);
+        System.out.println("Duração para maratonar House: " + drHouse.getDuracaoEmMinutos());
     }
 }
