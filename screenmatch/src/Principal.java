@@ -1,6 +1,8 @@
 import br.com.alura.sreenmatch.modelos.*;
 import br.com.alura.sreenmatch.calculos.*;
 
+import java.util.ArrayList;
+
 
 public class Principal {
     public static void main(String[] args) {
@@ -49,5 +51,22 @@ public class Principal {
         FiltroRecomendacao filtro = new FiltroRecomendacao();
         filtro.filtra(filme01);
         filtro.filtra(filme02);
+
+        var filme03 = new Filme();
+        filme03.setNome("Whiplash");
+        filme03.setAnoDeLancamento(2014);
+        filme03.setDuracaoEmMinutos(200);
+        filme03.avalia(9.5);
+
+        ArrayList<Filme> listaDeFilme = new ArrayList<>();
+        listaDeFilme.add(filme01);
+        listaDeFilme.add(filme02);
+        listaDeFilme.add(filme03);
+        System.out.println("\nTamanho da lista: " + listaDeFilme.size());
+        System.out.println("Primeiro Filme: " + listaDeFilme.get(0).getNome());
+        System.out.println("Segundo Filme: " + listaDeFilme.get(1).getNome());
+        System.out.println("Terceiro Filme: " + listaDeFilme.get(2).getNome());
+        System.out.println(listaDeFilme);
+        System.out.println("toString: " + listaDeFilme.get(0).toString());
     }
 }
