@@ -1,4 +1,4 @@
-package Desafio.CalculadoraRentagulo;
+package Desafios.Desafios01.CalculadoraRentagulo;
 
 public interface CalculoGeometrico {
     void calcularArea(double base, double altura);

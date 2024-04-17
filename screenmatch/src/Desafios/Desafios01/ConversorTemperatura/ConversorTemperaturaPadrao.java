@@ -1,4 +1,4 @@
-package Desafio.ConversorTemperatura;
+package Desafios.Desafios01.ConversorTemperatura;
 
 public class ConversorTemperaturaPadrao implements ConversorTemperatura{
     public void celsiusParaFahrenheit(double temperatura){

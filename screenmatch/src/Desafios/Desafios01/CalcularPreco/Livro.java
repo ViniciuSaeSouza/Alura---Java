@@ -1,4 +1,4 @@
-package Desafio.CalcularPreco;
+package Desafios.Desafios01.CalcularPreco;
 
 public class Livro implements Calculavel{
     public void calcularPrecoFinal(double valor){

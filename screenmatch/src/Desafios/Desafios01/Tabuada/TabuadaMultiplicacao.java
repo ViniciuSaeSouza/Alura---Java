@@ -1,4 +1,4 @@
-package Desafio.Tabuada;
+package Desafios.Desafios01.Tabuada;
 
 public class TabuadaMultiplicacao implements Tabuada{
 
