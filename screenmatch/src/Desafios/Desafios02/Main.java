@@ -16,5 +16,25 @@ public class Main {
         System.out.println(pessoas);
         System.out.println("Primeiro nome: "+pessoas.get(1).toString());
         System.out.println("Tamanho da lista: " + pessoas.size());
+
+        ////////////////////////////////////////////////////////////
+        System.out.println("\n");
+        ArrayList<Produto> listaDeProdutos = new ArrayList<>();
+
+        var cebola = new Produto("Cebola");
+        var leite = new Produto("Leite");
+        var chocolate = new Produto("Chocolate");
+
+        listaDeProdutos.add(cebola);
+        listaDeProdutos.add(leite);
+        listaDeProdutos.add(chocolate);
+
+        System.out.println("Tamanho da lista de produtos: " + listaDeProdutos.size());
+        System.out.println(listaDeProdutos.get(2).getNome());
+
+        var pao = new Produto("Pão", 5.99, 10);
+
+        var carne = new ProdutoPerecivel("Carne", 50.00, 3, "08/09/1995");
+        System.out.println(carne.toString());
     }
 }

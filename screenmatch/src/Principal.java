@@ -21,30 +21,30 @@ public class Principal {
         System.out.println("Total de avaliações: " + filme01.getTotalDeAvaliacoes());
         System.out.println("Média das avaliações: " + filme01.pegaMedia());*/
 
-        Serie drHouse = new Serie();
-        drHouse.setNome("Dr.House");
-        drHouse.setAnoDeLancamento(2004);
+        Serie drHouse = new Serie("Dr.House",2004);
+        //drHouse.setNome("Dr.House");
+        //drHouse.setAnoDeLancamento(2004);
         drHouse.exibiFichaTecnica();
         drHouse.setTemporadas(8);
         drHouse.setEpisodiosPorTemporada(10);
         drHouse.setMinutosPorEpisodio(45);
         System.out.println("Duração para maratonar House: " + drHouse.getDuracaoEmMinutos());
 
-        Filme filme01 = new Filme("O podereso chefão");
+        Filme filme01 = new Filme("O podereso chefão",1970);
         //filme01.setNome("O podereso chefão");
-        filme01.setAnoDeLancamento(1970);
+        //filme01.setAnoDeLancamento(1970);
         filme01.setDuracaoEmMinutos(180);
         filme01.avalia(10);
 
-        Filme filme02 = new Filme("Moneyball");
+        Filme filme02 = new Filme("Moneyball",2011);
         //filme02.setNome("Moneyball");
-        filme02.setAnoDeLancamento(2011);
+        //filme02.setAnoDeLancamento(2011);
         filme02.setDuracaoEmMinutos(133);
         filme02.avalia(8);
 
-        var filme03 = new Filme("Whiplash");
+        var filme03 = new Filme("Whiplash",2014);
         //filme03.setNome("Whiplash");
-        filme03.setAnoDeLancamento(2014);
+        //filme03.setAnoDeLancamento(2014);
         filme03.setDuracaoEmMinutos(200);
         filme03.avalia(9.5);
 

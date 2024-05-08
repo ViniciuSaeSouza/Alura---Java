@@ -1,4 +1,7 @@
 package br.com.alura.sreenmatch.modelos;
+
+import java.util.concurrent.TimeUnit;
+
 public class Titulo {
     private String nome;
     private int anoDeLancamento;
@@ -11,6 +14,12 @@ public class Titulo {
         this.nome = nome;
         this.anoDeLancamento = anoDeLancamento;
     }
+
+    public Titulo(int anoDeLancamento){
+        this.anoDeLancamento = anoDeLancamento;
+    }
+
+    public Titulo(){};
 
 
 //Getters
