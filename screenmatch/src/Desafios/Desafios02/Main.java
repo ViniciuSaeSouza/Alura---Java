@@ -14,7 +14,7 @@ public class Main {
         pessoas.add(pessoa02);
         pessoas.add(pessoa03);
         System.out.println(pessoas);
-        System.out.println(pessoas.get(1).toString());
+        System.out.println("Primeiro nome: "+pessoas.get(1).toString());
         System.out.println("Tamanho da lista: " + pessoas.size());
     }
 }

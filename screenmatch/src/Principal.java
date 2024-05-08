@@ -30,17 +30,23 @@ public class Principal {
         drHouse.setMinutosPorEpisodio(45);
         System.out.println("Duração para maratonar House: " + drHouse.getDuracaoEmMinutos());
 
-        Filme filme01 = new Filme();
-        filme01.setNome("O podereso chefão");
+        Filme filme01 = new Filme("O podereso chefão");
+        //filme01.setNome("O podereso chefão");
         filme01.setAnoDeLancamento(1970);
         filme01.setDuracaoEmMinutos(180);
         filme01.avalia(10);
 
-        Filme filme02 = new Filme();
-        filme02.setNome("O podereso chefão 2");
-        filme02.setAnoDeLancamento(1974);
-        filme02.setDuracaoEmMinutos(200);
-        filme02.avalia(6);
+        Filme filme02 = new Filme("Moneyball");
+        //filme02.setNome("Moneyball");
+        filme02.setAnoDeLancamento(2011);
+        filme02.setDuracaoEmMinutos(133);
+        filme02.avalia(8);
+
+        var filme03 = new Filme("Whiplash");
+        //filme03.setNome("Whiplash");
+        filme03.setAnoDeLancamento(2014);
+        filme03.setDuracaoEmMinutos(200);
+        filme03.avalia(9.5);
 
         CalculadoraDeTempo calculadora = new CalculadoraDeTempo();
         calculadora.inclui(filme01);
@@ -52,11 +58,6 @@ public class Principal {
         filtro.filtra(filme01);
         filtro.filtra(filme02);
 
-        var filme03 = new Filme();
-        filme03.setNome("Whiplash");
-        filme03.setAnoDeLancamento(2014);
-        filme03.setDuracaoEmMinutos(200);
-        filme03.avalia(9.5);
 
         ArrayList<Filme> listaDeFilme = new ArrayList<>();
         listaDeFilme.add(filme01);
