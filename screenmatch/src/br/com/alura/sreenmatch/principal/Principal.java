@@ -1,3 +1,5 @@
+package br.com.alura.sreenmatch.principal;
+
 import br.com.alura.sreenmatch.modelos.*;
 import br.com.alura.sreenmatch.calculos.*;
 
