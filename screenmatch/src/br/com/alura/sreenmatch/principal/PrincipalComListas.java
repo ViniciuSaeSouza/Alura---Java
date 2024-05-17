@@ -23,7 +23,7 @@ public class PrincipalComListas {
         listaDeTitulos.add(drHouse);
         for (Titulo item:listaDeTitulos){
             System.out.println(item);
-            System.out.println(item());
+            System.out.println(item.getNome());
         }
     }
 }
