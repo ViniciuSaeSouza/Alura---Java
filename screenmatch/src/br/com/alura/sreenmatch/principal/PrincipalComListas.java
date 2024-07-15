@@ -23,8 +23,10 @@ public class PrincipalComListas {
         listaDeTitulos.add(drHouse);
         for (Titulo item:listaDeTitulos){
             System.out.println(item);
-            Filme filme = (Filme) item;
-            System.out.println("Classificação: " + filme.getClassificacao());
+            if (item instanceof Filme filme && filme.getClassificacao() > 2) {
+                System.out.println("Classificação: " + filme.getClassificacao());
+            }
+
         }
     }
 }
