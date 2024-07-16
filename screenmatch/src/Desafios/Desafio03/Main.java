@@ -55,7 +55,7 @@ public class Main {
         listaDeContas.add(conta03);
         listaDeContas.add(conta04);
 
-        ContaBancaria maiorSaldo = listaDeContas.get(0);
+        ContaBancaria maiorSaldo = listaDeContas.getFirst();
         for (ContaBancaria conta: listaDeContas) {
             if (conta.getSaldo() > maiorSaldo.getSaldo()){
                 maiorSaldo = conta;
