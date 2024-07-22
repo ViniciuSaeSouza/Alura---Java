@@ -1,4 +1,4 @@
-package Desafios.Desafio03.EX06;
+package Desafios.Desafios03.EX06;
 
 public class ContaBancaria {
     private int numeroConta;

@@ -1,4 +1,4 @@
-package Desafios.Desafio03.EX01;
+package Desafios.Desafios03.EX01;
 
 import java.util.ArrayList;
 

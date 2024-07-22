@@ -1,4 +1,4 @@
-package Desafios.Desafio03.EX04;
+package Desafios.Desafios03.EX04;
 
 public class Produto {
     private String nome;

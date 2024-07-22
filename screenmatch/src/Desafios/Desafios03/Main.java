@@ -1,10 +1,10 @@
-package Desafios.Desafio03;
+package Desafios.Desafios03;
 
-import Desafios.Desafio03.EX02.Animal;
-import Desafios.Desafio03.EX02.Cachorro;
-import Desafios.Desafio03.EX04.Produto;
-import Desafios.Desafio03.EX05.*;
-import Desafios.Desafio03.EX06.ContaBancaria;
+import Desafios.Desafios03.EX02.Animal;
+import Desafios.Desafios03.EX02.Cachorro;
+import Desafios.Desafios03.EX04.Produto;
+import Desafios.Desafios03.EX05.*;
+import Desafios.Desafios03.EX06.ContaBancaria;
 
 import java.util.ArrayList;
 

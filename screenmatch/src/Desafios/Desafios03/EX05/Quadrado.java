@@ -1,4 +1,4 @@
-package Desafios.Desafio03.EX05;
+package Desafios.Desafios03.EX05;
 
 public class Quadrado implements Forma{
     double lado;
