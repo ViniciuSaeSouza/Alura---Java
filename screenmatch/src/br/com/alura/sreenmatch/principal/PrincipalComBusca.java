@@ -12,10 +12,10 @@ public class PrincipalComBusca {
         Scanner sc = new Scanner(System.in);
         System.out.println("Título: ");
         var title = sc.next();
-        String uriFormatada = "https://www.omdbapi.com/?t=" + title + "&apikey=da948075";
+        String endereco = "https://www.omdbapi.com/?t=" + title + "&apikey=da948075";
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create(uriFormatada))
+                .uri(URI.create(endereco))
                 .build();
         HttpResponse<String> response = client
                 .send(request, HttpResponse.BodyHandlers.ofString());
