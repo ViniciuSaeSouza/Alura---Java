@@ -13,7 +13,7 @@ public class ApiGoogleBooks {
         System.out.print("Livro: ");
         var livro = sc.next();
 
-        String key = "AIzaSyCWVp2yMwsxJ23DPcrLovFOruFwMtGAYEI";
+        String key; //pegar no google api
 
         String endereco = "https://www.googleapis.com/books/v1/volumes?q="+ livro +"&key=" +key;
 
