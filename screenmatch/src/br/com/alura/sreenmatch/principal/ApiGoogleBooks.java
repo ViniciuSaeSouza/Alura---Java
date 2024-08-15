@@ -15,7 +15,7 @@ public class ApiGoogleBooks {
 
         String key; //pegar no google api
 
-        String endereco = "https://www.googleapis.com/books/v1/volumes?q="+ livro +"&key=" +key;
+        String endereco = "https://www.googleapis.com/books/v1/volumes?q="+ livro +"&key=";//+key;
 
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()

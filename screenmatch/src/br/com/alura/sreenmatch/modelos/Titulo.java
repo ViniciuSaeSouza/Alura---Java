@@ -1,11 +1,14 @@
 package br.com.alura.sreenmatch.modelos;
 
+import com.google.gson.annotations.SerializedName;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.concurrent.TimeUnit;
 
 public class Titulo implements Comparable<Titulo>{
+    @SerializedName("Title")
     private String nome;
+    @SerializedName("Year")
     private int anoDeLancamento;
     private boolean incluidoNoPlano;
     private double somaDasAvaliacoes;
@@ -91,5 +94,10 @@ public class Titulo implements Comparable<Titulo>{
     @Override
     public int compareTo(@NotNull Titulo outroTitulo) {
         return this.getNome().compareTo(outroTitulo.getNome());
+    }
+
+    @Override
+    public String toString() {
+        return "Nome: "+getNome()+"\nAno de lançamento: " + getAnoDeLancamento();
     }
 }
