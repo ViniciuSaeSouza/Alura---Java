@@ -1,6 +1,9 @@
 package br.com.alura.sreenmatch.principal;
 import br.com.alura.sreenmatch.modelos.Titulo;
+import br.com.alura.sreenmatch.modelos.TituloOmdb;
+import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import java.io.IOException;
 import java.net.http.HttpClient;
@@ -24,9 +27,14 @@ public class PrincipalComBusca {
                 .send(request, HttpResponse.BodyHandlers.ofString());
         System.out.println(response.body());
         String json = response.body(); // Atribui á variável 'json' o json do método response.body()
+        System.out.println(json);
+//        Gson gson = new Gson(); Gson sem builder
 
-        Gson gson = new Gson();
-        Titulo meuTitulo = gson.fromJson(json, Titulo.class);
-        System.out.println(meuTitulo.toString());
+        Gson gson = new GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE).create();
+        TituloOmdb meuTituloOmdb = gson.fromJson(json, TituloOmdb.class);
+        System.out.println(meuTituloOmdb);
+        Titulo meuTitulo = new Titulo(meuTituloOmdb);
+        System.out.println("Titulo convertido");
+        System.out.println(meuTitulo + "\nDuração em min: " + meuTitulo.getDuracaoEmMinutos());
     }
 }

@@ -26,6 +26,13 @@ public class Titulo implements Comparable<Titulo>{
 
     public Titulo(){};
 
+//    Titulo Omdb constructor
+    public Titulo(TituloOmdb meuTituloOmdb){
+        this.nome = meuTituloOmdb.title();
+        this.anoDeLancamento = Integer.parseInt(meuTituloOmdb.year());
+        this.duracaoEmMinutos = Integer.valueOf(meuTituloOmdb.runtime().substring(0,2));
+    }
+
 
 //Getters
 
