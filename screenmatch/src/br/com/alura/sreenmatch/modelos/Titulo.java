@@ -1,14 +1,15 @@
 package br.com.alura.sreenmatch.modelos;
 
+import br.com.alura.sreenmatch.exececao.ExcecaoAnoInvalidoException;
 import com.google.gson.annotations.SerializedName;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.concurrent.TimeUnit;
 
 public class Titulo implements Comparable<Titulo>{
-    @SerializedName("Title")
+
     private String nome;
-    @SerializedName("Year")
+
     private int anoDeLancamento;
     private boolean incluidoNoPlano;
     private double somaDasAvaliacoes;
@@ -29,6 +30,11 @@ public class Titulo implements Comparable<Titulo>{
 //    Titulo Omdb constructor
     public Titulo(TituloOmdb meuTituloOmdb){
         this.nome = meuTituloOmdb.title();
+
+        // Se o ano vier com mais de 4 números (ex: '2018-')
+        if (meuTituloOmdb.year().length() > 4){
+            throw new ExcecaoAnoInvalidoException("Não consegui converter o ano em inteiro. ");
+        }
         this.anoDeLancamento = Integer.parseInt(meuTituloOmdb.year());
         this.duracaoEmMinutos = Integer.valueOf(meuTituloOmdb.runtime().substring(0,2));
     }
