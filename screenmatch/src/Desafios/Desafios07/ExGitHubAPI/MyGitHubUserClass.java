@@ -36,7 +36,7 @@ public class MyGitHubUserClass {
     public MyGitHubUserClass(GitHubUserRecord rec){
         this.login = rec.login();
         this.location = rec.location();
-        this.followers = Integer.parseInt(rec.followers());
+        this.followers = rec.followers();
     }
 
     @Override

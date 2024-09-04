@@ -38,7 +38,6 @@ public class GitHubEx {
             System.out.println(teste);
             System.out.println();
             System.out.println(userTest.toString());
-
     } catch(InterruptedException | IOException e){
             e.getMessage();
         }
