@@ -15,11 +15,8 @@ import java.util.Scanner;
 public class GitHubEx {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-//        System.out.println("Usuário: ");
-        //String user = sc.nextLine();
-        String user = "ViniciuSaeSouza";
-        user = user.replace(" ", "");
-//        System.out.println(user);
+        System.out.println("Usuário: ");
+        String user = sc.nextLine();
         String url = "https://api.github.com/users/" + user;
 
         try {
