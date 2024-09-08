@@ -36,7 +36,7 @@ public class Titulo implements Comparable<Titulo>{
             throw new ExcecaoAnoInvalidoException("Não consegui converter o ano em inteiro. ");
         }
         this.anoDeLancamento = Integer.parseInt(meuTituloOmdb.year());
-        this.duracaoEmMinutos = Integer.valueOf(meuTituloOmdb.runtime().substring(0,2));
+        this.duracaoEmMinutos = Integer.valueOf(meuTituloOmdb.runtime().substring(0,3));
     }
 
 
@@ -111,6 +111,6 @@ public class Titulo implements Comparable<Titulo>{
 
     @Override
     public String toString() {
-        return "Nome: "+getNome()+"\nAno de lançamento: " + getAnoDeLancamento();
+        return "("+"Nome: "+getNome()+" | Ano de lançamento: " + getAnoDeLancamento() + " | Duração: " + getDuracaoEmMinutos() + ")";
     }
 }
