@@ -21,7 +21,8 @@ public class ContaService {
     private Set<Conta> contas = new HashSet<>();
 
     public Set<Conta> listarContasAbertas() {
-        return contas;
+        Connection conn = connection.recuperaConexao();
+        return new ContaDAO(conn).listar();
     }
 
     public BigDecimal consultarSaldo(Integer numeroDaConta) {
@@ -30,34 +31,8 @@ public class ContaService {
     }
 
     public void abrir(DadosAberturaConta dadosDaConta) {
-        var cliente = new Cliente(dadosDaConta.dadosCliente());
-        var conta = new Conta(dadosDaConta.numero(), cliente);
-        if (contas.contains(conta)) {
-            throw new RegraDeNegocioException("Já existe outra conta aberta com o mesmo número!");
-        }
-
-        String sql = "INSERT INTO conta (numero, saldo, cliente_nome, cliente_cpf, cliente_email) VALUES (?, ?, ?, ?, ?)";
-
         Connection conn = connection.recuperaConexao();
-
-        try {
-            PreparedStatement preparedStatement = conn.prepareStatement(sql);
-
-            preparedStatement.setInt(1, conta.getNumero());
-            preparedStatement.setBigDecimal(2, BigDecimal.ZERO);
-            preparedStatement.setString(3, cliente.getNome());
-            preparedStatement.setString(4, cliente.getCpf());
-            preparedStatement.setString(5, cliente.getEmail());
-
-            preparedStatement.execute();
-            preparedStatement.close();
-
-            conn.close();
-
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-
+        new ContaDAO(conn).salvar(dadosDaConta);
 
     }
 
@@ -93,10 +68,13 @@ public class ContaService {
     }
 
     private Conta buscarContaPorNumero(Integer numero) {
-        return contas
-                .stream()
-                .filter(c -> c.getNumero() == numero)
-                .findFirst()
-                .orElseThrow(() -> new RegraDeNegocioException("Não existe conta cadastrada com esse número!"));
+//        return contas
+//                .stream()
+//                .filter(c -> c.getNumero() == numero)
+//                .findFirst()
+//                .orElseThrow(() -> new RegraDeNegocioException("Não existe conta cadastrada com esse número!"));
+
+        Connection conn = connection.recuperaConexao();
+        return new ContaDAO(conn).buscarPorNumero(numero);
     }
 }
