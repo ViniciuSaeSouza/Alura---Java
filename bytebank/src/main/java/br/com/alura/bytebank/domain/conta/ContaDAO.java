@@ -20,7 +20,7 @@ public class ContaDAO {
 
     public void salvar(DadosAberturaConta dadosDaConta) {
         var cliente = new Cliente(dadosDaConta.dadosCliente());
-        var conta = new Conta(dadosDaConta.numero(), cliente);
+        var conta = new Conta(dadosDaConta.numero(), cliente, BigDecimal.ZERO);
 
         String sql = "INSERT INTO conta (numero, saldo, cliente_nome, cliente_cpf, cliente_email) VALUES (?, ?, ?, ?, ?)";
 
@@ -54,12 +54,13 @@ public class ContaDAO {
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
                 Integer numero = rs.getInt(1);
+                BigDecimal saldo = rs.getBigDecimal(2);
                 String nome = rs.getString(3);
                 String cpf = rs.getString(4);
                 String email = rs.getString(5);
                 DadosCadastroCliente dadosCliente = new DadosCadastroCliente(nome, cpf, email);
                 var cliente = new Cliente(dadosCliente);
-                var conta = new Conta(numero, cliente);
+                var conta = new Conta(numero, cliente, saldo);
                 contas.add(conta);
             }
             rs.close();
@@ -80,12 +81,13 @@ public class ContaDAO {
         try (PreparedStatement preparedStatement = conn.prepareStatement(sql)) {
             rs = preparedStatement.executeQuery();
             while (rs.next()) {
+                BigDecimal saldo = rs.getBigDecimal(2);
                 String nome = rs.getString(3);
                 String cpf = rs.getString(4);
                 String email = rs.getString(5);
                 dadosConta = new DadosCadastroCliente(nome, cpf, email);
                 cliente = new Cliente(dadosConta);
-                conta = new Conta(numero, cliente);
+                conta = new Conta(numero, cliente, saldo);
             }
             rs.close();
             conn.close();
@@ -93,5 +95,34 @@ public class ContaDAO {
             throw new RuntimeException(e);
         }
         return conta;
+    }
+
+    public void alterar(Integer numeroConta, BigDecimal valor) {
+        String sql = "UPDATE conta SET saldo = ? WHERE numero = ?";
+
+        try (PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setBigDecimal(1, valor);
+            ps.setInt(2, numeroConta);
+
+            ps.execute();
+            conn.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    public void realizarSaque(Integer numeroConta, BigDecimal valor) {
+        String sql = "UPDATE conta SET saldo = ? WHERE numero = ?";
+
+        try (PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setBigDecimal(1, valor);
+            ps.setInt(2, numeroConta);
+            ps.executeUpdate();
+
+            conn.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

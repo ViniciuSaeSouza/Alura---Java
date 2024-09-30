@@ -42,11 +42,19 @@ public class ContaService {
             throw new RegraDeNegocioException("Valor do saque deve ser superior a zero!");
         }
 
+        if (conta == null){
+            throw new RegraDeNegocioException("Conta não existe!");
+        }
+
         if (valor.compareTo(conta.getSaldo()) > 0) {
             throw new RegraDeNegocioException("Saldo insuficiente!");
         }
 
-        conta.sacar(valor);
+
+        BigDecimal novoSaldo = conta.getSaldo().subtract(valor);
+        Connection conn = new ConnectionFactory().recuperaConexao();
+        new ContaDAO(conn).realizarSaque(conta.getNumero(), novoSaldo);
+
     }
 
     public void realizarDeposito(Integer numeroDaConta, BigDecimal valor) {
@@ -55,7 +63,8 @@ public class ContaService {
             throw new RegraDeNegocioException("Valor do deposito deve ser superior a zero!");
         }
 
-        conta.depositar(valor);
+        Connection conn = new ConnectionFactory().recuperaConexao();
+        new ContaDAO(conn).alterar(conta.getNumero(), valor);
     }
 
     public void encerrar(Integer numeroDaConta) {
@@ -68,13 +77,11 @@ public class ContaService {
     }
 
     private Conta buscarContaPorNumero(Integer numero) {
-//        return contas
-//                .stream()
-//                .filter(c -> c.getNumero() == numero)
-//                .findFirst()
-//                .orElseThrow(() -> new RegraDeNegocioException("Não existe conta cadastrada com esse número!"));
-
         Connection conn = connection.recuperaConexao();
-        return new ContaDAO(conn).buscarPorNumero(numero);
+        try {
+            return new ContaDAO(conn).buscarPorNumero(numero);
+        }  catch (NullPointerException e) {
+            throw new RegraDeNegocioException("ERRO! Conta não existe.");
+        }
     }
 }
